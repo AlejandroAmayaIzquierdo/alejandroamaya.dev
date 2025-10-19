@@ -12,7 +12,7 @@ const SkillsSubSection: React.FC = () => {
     scrollMotion.set(scroll);
   }, [scroll, scrollMotion]);
 
-  const y = useTransform(scrollMotion, [975, 1500], [0, 100]);
+  const y = useTransform(scrollMotion, [975, 1500], [0, 110]);
   // const clipPath = useTransform(
   //   scrollMotion,
   //   [975, 2000],
