@@ -5,9 +5,16 @@ import { useRef } from "react";
 interface ParallaxCardProps {
   children?: ReactNode;
   style?: React.CSSProperties;
+  width?: number;
+  height?: number;
 }
 
-const ParallaxCard: React.FC<ParallaxCardProps> = ({ children, style }) => {
+const ParallaxCard: React.FC<ParallaxCardProps> = ({
+  children,
+  style,
+  width,
+  height,
+}) => {
   const cardRef = useRef<HTMLDivElement | null>(null);
   const cardX = useMotionValue(0);
   const cardY = useMotionValue(0);
@@ -56,7 +63,7 @@ const ParallaxCard: React.FC<ParallaxCardProps> = ({ children, style }) => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "80vh",
+        height: "100%",
         ...style,
       }}
       onMouseMove={handleMouseMove}
@@ -79,9 +86,9 @@ const ParallaxCard: React.FC<ParallaxCardProps> = ({ children, style }) => {
           key="card"
           style={{
             boxShadow: "0px 0px 30px -7px rgba(0,0,0,0.45)",
-            borderRadius: 10,
-            width: 400,
-            height: 540,
+            borderRadius: 0,
+            width: width || 400,
+            height: height || 540,
             transformStyle: "preserve-3d",
             perspective: 900, // Set perspective on the card
             rotateX: cardRotateX,

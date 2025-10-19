@@ -27,11 +27,11 @@ const Header: React.FC<HeaderProps> = () => {
       transition={{ duration: 0.6, ease: "easeInOut" }}
       className="absolute top-0 z-40 w-full"
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between p-4">
-        <div className="text-2xl font-bold font-[Space-Grotesk-Bold]">
+      <div className="mx-auto flex max-w-7xl items-center justify-between p-4 px-4 md:px-6">
+        <div className="text-lg md:text-2xl font-bold font-[Space-Grotesk-Bold]">
           Full Stack Developer
         </div>
-        <nav className="flex">
+        <nav className="hidden md:flex">
           <ul className="flex space-x-4">
             <div className="text-lg font-medium text-gray-700 hover:text-gray-900 cursor-pointer">
               <li className="px-3 py-2 rounded-md">
@@ -60,6 +60,27 @@ const Header: React.FC<HeaderProps> = () => {
               </li>
             </div>
           </ul>
+        </nav>
+        {/* Mobile: simplified nav */}
+        <nav className="flex md:hidden space-x-2">
+          <a
+            href="#about"
+            className="text-sm font-[manrope] font-bold px-2 py-1"
+          >
+            About
+          </a>
+          <a
+            href="#work"
+            className="text-sm font-[manrope] font-bold px-2 py-1"
+          >
+            Works
+          </a>
+          <a
+            href="#contact"
+            className="text-sm font-[manrope] font-bold px-2 py-1"
+          >
+            Contact
+          </a>
         </nav>
       </div>
     </motion.header>

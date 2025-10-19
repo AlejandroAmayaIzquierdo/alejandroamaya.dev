@@ -9,11 +9,11 @@ const AboutMeSubSection: React.FC = () => {
 
   const scrollMotion = useMotionValue(scroll);
   useEffect(() => {
-    console.log({ scroll });
+    // console.log({ scroll });
     scrollMotion.set(scroll);
   }, [scroll, scrollMotion]);
 
-  const y = useTransform(scrollMotion, [975, 1500], [0, 525]);
+  const y = useTransform(scrollMotion, [990, 1500], [0, 525]);
   const clipPath = useTransform(
     scrollMotion,
     [1000, 1500],
@@ -26,14 +26,14 @@ const AboutMeSubSection: React.FC = () => {
         transform: `translateY(${y.get()}px)`,
         clipPath: clipPath.get(),
       }}
-      className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4 flex flex-1 flex-row items-start justify-start"
+      className="flex flex-col gap-4 items-start justify-start w-full"
     >
-      <span className="flex-wrap-reverse text-primary font-bold font-[Space-Grotesk-Bold] text-2xl">
+      <span className="flex-wrap-reverse text-primary font-bold font-[Space-Grotesk-Bold] text-xl md:text-2xl">
         (ABOUT ME)
       </span>
-      <div className="max-w-4xl text-secondary space-y-6">
-        <p className="text-xl leading-relaxed font-light font-[manrope]">
-          I’m a{" "}
+      <div className="max-w-4xl text-secondary space-y-4 md:space-y-6">
+        <p className="text-base md:text-xl leading-relaxed font-light font-[manrope]">
+          I'm a{" "}
           <span className="font-semibold text-primary">software developer</span>{" "}
           specializing in <span className="font-semibold">C#</span> and{" "}
           <span className="font-semibold">ASP.NET</span>, with solid experience
@@ -44,7 +44,7 @@ const AboutMeSubSection: React.FC = () => {
           <span className="font-semibold">C#</span>.
         </p>
 
-        <p className="text-xl leading-relaxed font-light font-[manrope]">
+        <p className="text-base md:text-xl leading-relaxed font-light font-[manrope]">
           While I find my deepest enjoyment in backend development, I also have
           over <span className="font-semibold">3 years of experience</span>{" "}
           working with <span className="font-semibold">React</span> and{" "}
@@ -53,13 +53,13 @@ const AboutMeSubSection: React.FC = () => {
           special place in my heart for its elegant simplicity and reactivity.
         </p>
 
-        <p className="text-xl leading-relaxed font-light font-[manrope]">
-          I’m always on the lookout for{" "}
+        <p className="text-base md:text-xl leading-relaxed font-light font-[manrope]">
+          I'm always on the lookout for{" "}
           <span className="font-semibold text-primary">new challenges</span> and{" "}
           <span className="font-semibold text-primary">
             interesting projects
           </span>{" "}
-          — especially those that push the boundaries of what’s possible in
+          — especially those that push the boundaries of what's possible in
           real-time, connected applications.
         </p>
       </div>

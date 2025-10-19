@@ -19,7 +19,7 @@ const AboutSection: React.FC = () => {
   const y = useTransform(scrollMotion, [0, 130], [100, 0]);
   const scale = useTransform(scrollMotion, [0, 130], [0.95, 1]);
 
-  const followScroll = useTransform(scrollMotion, [975, 1500], [0, 525]);
+  const followScroll = useTransform(scrollMotion, [990, 1500], [0, 525]);
 
   return (
     <motion.section
@@ -28,26 +28,29 @@ const AboutSection: React.FC = () => {
         opacity: opacity.get(),
         transform: `translateY(${y.get()}px) scale(${scale.get()})`,
       }}
-      className="min-h-[150vh] flex items-start justify-start"
+      className="min-h-[150vh] flex items-start justify-start px-2 md:px-0"
     >
-      <div className="bg-foreground w-full ml-2 mr-2 min-h-[150vh] rounded-t-2xl flex flex-col justify-start items-center p-10">
+      <div className="bg-foreground w-full ml-0 mr-0 md:ml-2 md:mr-2 min-h-[150vh] rounded-t-2xl flex flex-col justify-start items-center p-4 md:p-10">
         <div className="w-full">
-          <h1 className="text-6xl font-bold text-primary font-[Space-Grotesk-Bold]">
+          <h1 className="text-4xl md:text-6xl font-bold text-primary font-[Space-Grotesk-Bold]">
             ABOUT /
           </h1>
         </div>
-        <div className="flex flex-row gap-2 items-start justify-start">
+        <div className="flex flex-col md:flex-row gap-4 md:gap-2 items-center justify-start w-full pt-10">
           <motion.div
             style={{
               transform: `translateY(${followScroll.get()}px)`,
             }}
-            className="w-1/2"
+            className="w-full md:w-1/2"
           >
-            <ParallaxCard>
-              <img className="rounded-3xl" src="/photo.jpg" />
+            <ParallaxCard height={400}>
+              <img
+                className="rounded-tl-sm rounded-br-sm grayscale"
+                src="/photo.jpg"
+              />
             </ParallaxCard>
           </motion.div>
-          <div className="w-1/2 flex flex-col items-start justify-center pt-40">
+          <div className="w-full md:w-1/2 flex flex-col items-start justify-center pt-15 md:pt-40 pb-20 lg:pb-0">
             <AboutMeSubSection />
             <SkillsSubSection />
           </div>

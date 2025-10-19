@@ -2,9 +2,11 @@ import { useEffect, useRef } from "react";
 import Header from "./components/Header";
 import Lenis from "lenis";
 import HomeSection from "./components/HomeSection";
-import "./fonts/MonumentExtended-Regular.otf";
 import AboutSection from "./components/AboutSection";
 import WorkSection from "./components/WorkSection";
+import ContactSection from "./components/ContactSection";
+
+import "./fonts/MonumentExtended-Regular.otf";
 
 const App: React.FC = () => {
   const lenisRef = useRef<Lenis | null>(null);
@@ -28,12 +30,7 @@ const App: React.FC = () => {
         <HomeSection />
         <AboutSection />
         <WorkSection />
-        <section
-          id="contact"
-          className="min-h-screen flex items-center justify-center"
-        >
-          <h1 className="text-4xl font-bold">Contact Section</h1>
-        </section>
+        <ContactSection />
       </main>
     </div>
   );
