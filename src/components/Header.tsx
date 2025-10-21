@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import type Lenis from "lenis";
 import useScroll from "../hooks/useScroll";
-
 interface HeaderProps {
   lenis?: Lenis | null;
+  onNavClick?: (section: string) => void;
 }
-const Header: React.FC<HeaderProps> = () => {
+const Header: React.FC<HeaderProps> = ({ onNavClick }) => {
   const [show, setShow] = useState(true);
   const [lastScroll, setLastScroll] = useState(0);
 
@@ -35,18 +35,24 @@ const Header: React.FC<HeaderProps> = () => {
           <ul className="flex space-x-4">
             <div className="text-lg font-medium text-gray-700 hover:text-gray-900 cursor-pointer">
               <li className="px-3 py-2 rounded-md">
-                <a href="#about" className="font-[manrope] font-bold">
+                <div
+                  onClick={() => onNavClick?.("about")}
+                  className="font-[manrope] font-bold"
+                >
                   About
-                </a>
+                </div>
               </li>
             </div>
           </ul>
           <ul className="flex space-x-4">
             <div className="text-lg font-medium text-gray-700 hover:text-gray-900 cursor-pointer">
               <li className="px-3 py-2 rounded-md">
-                <a href="#work" className="font-[manrope] font-bold">
+                <div
+                  onClick={() => onNavClick?.("work")}
+                  className="font-[manrope] font-bold"
+                >
                   Works
-                </a>
+                </div>
               </li>
             </div>
           </ul>
@@ -54,9 +60,12 @@ const Header: React.FC<HeaderProps> = () => {
           <ul className="flex space-x-4">
             <div className="text-lg font-medium text-gray-700 hover:text-gray-900 cursor-pointer">
               <li className="px-3 py-2 rounded-md">
-                <a href="#contact" className="font-[manrope] font-bold">
+                <div
+                  onClick={() => onNavClick?.("contact")}
+                  className="font-[manrope] font-bold"
+                >
                   Contact
-                </a>
+                </div>
               </li>
             </div>
           </ul>

@@ -3,32 +3,29 @@ import WorkComponent from "./WorkComponent";
 import { useMotionValue, useTransform } from "motion/react";
 import useScroll from "../hooks/useScroll";
 
-const initialScroll = 2550;
-const finalScroll = 4086;
-
 // interface WorkSectionProps {}
 const WorkSection: React.FC = () => {
   const [countSection, setCurrentCountSection] = useState(1);
+  const [scrollRange, setScrollRange] = useState([0, 1000]);
 
   const { scroll } = useScroll();
 
   const scrollMotion = useMotionValue(scroll);
-
+  const sectionRef = useRef<HTMLElement>(null);
   const refResponsive = useRef<HTMLDivElement>(null);
   const refRegexle = useRef<HTMLDivElement>(null);
   const refPollClash = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     scrollMotion.set(scroll);
 
     if (refResponsive.current && refRegexle.current && refPollClash.current) {
-      // const { top: topResponsive } =
-      //   refResponsive.current.getBoundingClientRect();
       const { bottom: bottomRegexle } =
         refRegexle.current.getBoundingClientRect();
       const { bottom: bottomPollClash } =
         refPollClash.current.getBoundingClientRect();
       const innerHeight = window.innerHeight;
-      console.log({ bottomRegexle, bottomPollClash });
+
       if (
         bottomRegexle - innerHeight > 0 &&
         bottomPollClash - innerHeight > 0
@@ -44,18 +41,48 @@ const WorkSection: React.FC = () => {
     }
   }, [scroll, scrollMotion]);
 
-  const y = useTransform(
-    scrollMotion,
-    [initialScroll, finalScroll],
-    [0, finalScroll - initialScroll]
-  );
+  // Calculate dynamic scroll ranges based on section position
+  useEffect(() => {
+    const calculateRange = () => {
+      if (sectionRef.current && refResponsive.current && refPollClash.current) {
+        // Get the offsetTop of the section and last work item
+        // const sectionTop = sectionRef.current.offsetTop;
+        const responsiveTop = refResponsive.current.offsetTop;
+        const lastItemTop = refPollClash.current.offsetTop;
+        // const lastItemHeight = refPollClash.current.offsetHeight;
+
+        // Start when section enters viewport
+        const start = responsiveTop;
+        // End when last item exits viewport
+        const end = lastItemTop;
+
+        setScrollRange([Math.max(0, start), end]);
+      }
+    };
+
+    calculateRange();
+    window.addEventListener("resize", calculateRange);
+    // Recalculate after images/content load
+    window.addEventListener("load", calculateRange);
+
+    return () => {
+      window.removeEventListener("resize", calculateRange);
+      window.removeEventListener("load", calculateRange);
+    };
+  }, []);
+
+  const y = useTransform(scrollMotion, scrollRange, [
+    0,
+    scrollRange[1] - scrollRange[0],
+  ]);
 
   return (
     <section
+      ref={sectionRef}
       id="about"
-      className="min-h-[150vh] flex items-start justify-start"
+      className="min-h-screen flex items-start justify-start"
     >
-      <div className="bg-foreground w-full ml-2 mr-2 min-h-[150vh] flex flex-col justify-start items-center p-10 rounded-b-2xl">
+      <div className="bg-foreground w-full ml-2 mr-2 h-full flex flex-col justify-start items-center p-10 rounded-b-2xl">
         <div className="w-full">
           <h1 className="text-6xl font-bold text-primary font-[Space-Grotesk-Bold]">
             MY WORKS /

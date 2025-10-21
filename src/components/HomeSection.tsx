@@ -10,11 +10,18 @@ import {
 import { ArrowUpRight } from "lucide-react";
 import useScroll from "../hooks/useScroll";
 import ScrambleText from "./ScrambleText";
-const HomeSection: React.FC = () => {
+import { useEffect } from "react";
+
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+interface HomeSectionProps extends React.HTMLAttributes<HTMLElement> {}
+const HomeSection: React.FC<HomeSectionProps> = () => {
   const isInView = usePageInView();
   const { scroll } = useScroll();
 
   const scrollMotion = useMotionValue(scroll);
+  useEffect(() => {
+    scrollMotion.set(scroll);
+  }, [scroll, scrollMotion]);
 
   const pullupVariant: Variants = {
     initial: { y: "100%", clipPath: "inset(0 0 100% 0)" },
@@ -66,11 +73,6 @@ const HomeSection: React.FC = () => {
           src="/pexels-steve-pancrate.jpg"
           alt="Developer portrait"
           className="w-full h-full object-cover grayscale"
-          style={
-            {
-              // clipPath: "polygon(0 0, 100% 0, 100% 95%, 0 100%)",
-            }
-          }
         />
       </div>
       <div className="absolute top-1/3 left-2 md:left-8 text-right text-md md:text-md italic space-y-1 font-[manrope] text-secondary">

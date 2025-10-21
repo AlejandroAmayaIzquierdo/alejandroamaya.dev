@@ -10,6 +10,28 @@ import "./fonts/MonumentExtended-Regular.otf";
 
 const App: React.FC = () => {
   const lenisRef = useRef<Lenis | null>(null);
+
+  const handleScrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+
+    // let offset = -80; // Default offset for header height
+    // if (sectionId === "about") {
+    //   offset = -890; // Custom offset for About section
+    // } else if (sectionId === "work") {
+    //   offset = 770; // Custom offset for Work section
+    // } else if (sectionId === "contact") {
+    //   offset = -80; // Custom offset for Contact section
+    // }
+    if (section && lenisRef.current) {
+      const sectionTop = section.offsetTop;
+
+      lenisRef.current.scrollTo(sectionTop, {
+        duration: 1.5,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      });
+    }
+  };
+
   useEffect(() => {
     const lenis = new Lenis();
 
@@ -24,7 +46,10 @@ const App: React.FC = () => {
 
   return (
     <div className="bg-background">
-      <Header lenis={lenisRef.current} />
+      <Header
+        lenis={lenisRef.current}
+        onNavClick={(section) => handleScrollToSection(section)}
+      />
 
       <main>
         <HomeSection />
