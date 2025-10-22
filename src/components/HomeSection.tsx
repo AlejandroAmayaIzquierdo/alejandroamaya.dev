@@ -40,6 +40,16 @@ const HomeSection: React.FC<HomeSectionProps> = () => {
   const opacity = useTransform(scrollMotion, [0, 800], [1, 0]);
   const scale = useTransform(scrollMotion, [0, 300], [1, 0.9]);
 
+  // Animation for central image
+  const imageScale = useTransform(scrollMotion, [0, 400], [1, 1.2]);
+  const imageOpacity = useTransform(scrollMotion, [0, 600], [1, 0]);
+
+  // Animation for DEVELOPER text
+  const developerX = useTransform(scrollMotion, [0, 800], [0, -200]);
+
+  // Animation for vertical text
+  const verticalTextY = useTransform(scrollMotion, [0, 800], [0, -100]);
+
   return (
     <motion.section
       id="home"
@@ -68,44 +78,130 @@ const HomeSection: React.FC<HomeSectionProps> = () => {
       </div>
 
       {/* Central image - hidden on mobile */}
-      <div className="md:block absolute top-1/2 right-1/6 lg:-translate-x-1/5 md:-translate-x-1/5 -translate-y-1/2 w-[200px] h-[400px] md:w-[400px] md:h-[600px] -z-10">
+      <motion.div
+        className="md:block absolute top-1/2 right-1/6 lg:-translate-x-1/5 md:-translate-x-1/5 -translate-y-1/2 w-[200px] h-[400px] md:w-[400px] md:h-[600px] -z-10"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+        style={{
+          scale: imageScale,
+          opacity: imageOpacity,
+        }}
+      >
         <img
           src="/pexels-steve-pancrate.jpg"
           alt="Developer portrait"
           className="w-full h-full object-cover grayscale"
         />
-      </div>
-      <div className="absolute top-1/3 left-2 md:left-8 text-right text-md md:text-md italic space-y-1 font-[manrope] text-secondary">
-        <ScrambleText>Full Stack</ScrambleText>
-        <ScrambleText>ASP.NET & C#</ScrambleText>
-        <ScrambleText>React & Angular</ScrambleText>
-        <ScrambleText>TypeScript</ScrambleText>
-        <ScrambleText>Node.js</ScrambleText>
-        <ScrambleText>APIs</ScrambleText>
-        <ScrambleText>Websocket</ScrambleText>
-      </div>
+      </motion.div>
+      <motion.div
+        className="absolute top-1/3 left-2 md:left-8 text-right text-md md:text-md italic space-y-1 font-[manrope] text-secondary"
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.4, staggerChildren: 0.1 }}
+      >
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.5 }}
+        >
+          <ScrambleText>Full Stack</ScrambleText>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.6 }}
+        >
+          <ScrambleText>ASP.NET & C#</ScrambleText>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.7 }}
+        >
+          <ScrambleText>React & Angular</ScrambleText>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.8 }}
+        >
+          <ScrambleText>TypeScript</ScrambleText>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.9 }}
+        >
+          <ScrambleText>Node.js</ScrambleText>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 1.0 }}
+        >
+          <ScrambleText>APIs</ScrambleText>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 1.1 }}
+        >
+          <ScrambleText>Websocket</ScrambleText>
+        </motion.div>
+      </motion.div>
 
       {/* Large text at bottom */}
-      <div className="absolute bottom-0 left-0 text-[4rem] sm:text-[6rem] md:text-[8rem] lg:text-[12rem] font-[Space-Grotesk-Bold] font-extrabold tracking-tighter leading-none opacity-100">
+      <motion.div
+        className="absolute bottom-0 left-0 text-[4rem] sm:text-[6rem] md:text-[8rem] lg:text-[12rem] font-[Space-Grotesk-Bold] font-extrabold tracking-tighter leading-none opacity-100"
+        initial={{ x: -100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+        style={{
+          x: developerX,
+        }}
+      >
         DEVELOPER
-      </div>
+      </motion.div>
 
       {/* Right side vertical text - hidden on mobile */}
-      <div className="hidden md:block absolute top-1/2 right-4 -translate-y-1/2 text-xs tracking-widest font-[manrope] text-secondary">
+      <motion.div
+        className="hidden md:block absolute top-1/2 right-4 -translate-y-1/2 text-xs tracking-widest font-[manrope] text-secondary"
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.7 }}
+        style={{
+          y: verticalTextY,
+        }}
+      >
         <div className="[writing-mode:vertical-lr] rotate-180">
           Full Stack Developer • {new Date().getFullYear()} • Tenerife
         </div>
-      </div>
-      <ArrowUpRight
-        strokeLinecap="butt"
-        strokeLinejoin="miter"
-        className="absolute bottom-0 right-0 text-foreground rotate-90 w-20 h-20 md:w-30 md:h-30"
-      />
-      <ArrowUpRight
-        strokeLinecap="butt"
-        strokeLinejoin="miter"
-        className="absolute lg:top-10 md:top-15 left-0 text-foreground -rotate-90 w-20 h-20 md:w-30 md:h-30"
-      />
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, rotate: 45, scale: 0.5 }}
+        animate={{ opacity: 1, rotate: 90, scale: 1 }}
+        transition={{ duration: 0.6, delay: 0.8 }}
+        className="absolute bottom-0 right-0"
+      >
+        <ArrowUpRight
+          strokeLinecap="butt"
+          strokeLinejoin="miter"
+          className="text-foreground w-20 h-20 md:w-30 md:h-30"
+        />
+      </motion.div>
+      <motion.div
+        className="absolute lg:top-10 md:top-15 left-0"
+        initial={{ opacity: 0, rotate: -45, scale: 0.5 }}
+        animate={{ opacity: 1, rotate: -90, scale: 1 }}
+        transition={{ duration: 0.6, delay: 0.9 }}
+      >
+        <ArrowUpRight
+          strokeLinecap="butt"
+          strokeLinejoin="miter"
+          className="text-foreground w-20 h-20 md:w-30 md:h-30"
+        />
+      </motion.div>
     </motion.section>
   );
 };
