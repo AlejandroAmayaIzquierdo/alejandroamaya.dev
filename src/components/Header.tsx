@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import type Lenis from "lenis";
 import useScroll from "../hooks/useScroll";
+import ScrambleText, { type ScrambleTextRef } from "./ScrambleText";
 interface HeaderProps {
   lenis?: Lenis | null;
   onNavClick?: (section: string) => void;
@@ -12,10 +13,30 @@ const Header: React.FC<HeaderProps> = ({ onNavClick }) => {
 
   const { scroll } = useScroll();
 
+  const aboutScrambleRef = useRef<ScrambleTextRef>(null);
+  const workScrambleRef = useRef<ScrambleTextRef>(null);
+  const contactScrambleRef = useRef<ScrambleTextRef>(null);
+
   useEffect(() => {
     setShow(scroll < lastScroll || scroll < 50); // muestra si sube o está arriba
     setLastScroll(scroll);
   }, [scroll]);
+
+  useEffect(() => {
+    if (!show) return;
+
+    setTimeout(() => {
+      const refs = [aboutScrambleRef, workScrambleRef, contactScrambleRef];
+
+      const delay = 250; // milliseconds between each scramble
+
+      refs.forEach((ref, index) => {
+        setTimeout(() => {
+          ref.current?.scramble();
+        }, index * delay);
+      });
+    }, 400);
+  }, [show]);
 
   return (
     <motion.header
@@ -39,7 +60,9 @@ const Header: React.FC<HeaderProps> = ({ onNavClick }) => {
                   onClick={() => onNavClick?.("about")}
                   className="font-[manrope] font-bold"
                 >
-                  About
+                  <ScrambleText ref={aboutScrambleRef} autoStart={false}>
+                    About
+                  </ScrambleText>
                 </div>
               </li>
             </div>
@@ -51,7 +74,9 @@ const Header: React.FC<HeaderProps> = ({ onNavClick }) => {
                   onClick={() => onNavClick?.("work")}
                   className="font-[manrope] font-bold"
                 >
-                  Works
+                  <ScrambleText ref={workScrambleRef} autoStart={false}>
+                    Works
+                  </ScrambleText>
                 </div>
               </li>
             </div>
@@ -64,7 +89,9 @@ const Header: React.FC<HeaderProps> = ({ onNavClick }) => {
                   onClick={() => onNavClick?.("contact")}
                   className="font-[manrope] font-bold"
                 >
-                  Contact
+                  <ScrambleText ref={contactScrambleRef} autoStart={false}>
+                    Contact
+                  </ScrambleText>
                 </div>
               </li>
             </div>
