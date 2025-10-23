@@ -11,10 +11,12 @@ import { ArrowUpRight } from "lucide-react";
 import useScroll from "../hooks/useScroll";
 import ScrambleText from "./ScrambleText";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface HomeSectionProps extends React.HTMLAttributes<HTMLElement> {}
 const HomeSection: React.FC<HomeSectionProps> = () => {
+  const { t } = useTranslation();
   const isInView = usePageInView();
   const { scroll } = useScroll();
 
@@ -60,7 +62,7 @@ const HomeSection: React.FC<HomeSectionProps> = () => {
       }}
     >
       <div className="flex justify-center flex-wrap md:flex-nowrap">
-        {"Alejandro Amaya"
+        {t("home.title")
           .toUpperCase()
           .split("")
           .map((current, i) => (
@@ -70,6 +72,7 @@ const HomeSection: React.FC<HomeSectionProps> = () => {
               initial="initial"
               animate={isInView ? "animate" : "initial"}
               custom={i}
+              spellCheck="false"
               className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-extrabold font-[Space-Grotesk-Bold] text-foreground tracking-[0.05em] md:tracking-[0.1em]"
             >
               {current == " " ? <span>&nbsp;</span> : current}
@@ -156,12 +159,13 @@ const HomeSection: React.FC<HomeSectionProps> = () => {
         className="absolute bottom-0 left-0 text-[4rem] sm:text-[6rem] md:text-[8rem] lg:text-[12rem] font-[Space-Grotesk-Bold] font-extrabold tracking-tighter leading-none opacity-100"
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
+        spellCheck="false"
         transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
         style={{
           x: developerX,
         }}
       >
-        DEVELOPER
+        {t("home.role")}
       </motion.div>
 
       {/* Right side vertical text - hidden on mobile */}
@@ -174,8 +178,11 @@ const HomeSection: React.FC<HomeSectionProps> = () => {
           y: verticalTextY,
         }}
       >
-        <div className="[writing-mode:vertical-lr] rotate-180">
-          Full Stack Developer • {new Date().getFullYear()} • Tenerife
+        <div
+          className="[writing-mode:vertical-lr] rotate-180"
+          spellCheck="false"
+        >
+          {t("home.location", { year: new Date().getFullYear() })}
         </div>
       </motion.div>
       <motion.div

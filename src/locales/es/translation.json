@@ -1,0 +1,91 @@
+{
+  "home": {
+    "title": "Alejandro Amaya",
+    "role": "DESARROLLADOR",
+    "subtitle": "Desarrollador Full Stack",
+    "location": "Desarrollador Full Stack • {{year}} • Tenerife"
+  },
+  "nav": {
+    "home": "Inicio",
+    "work": "Trabajos",
+    "about": "Acerca de",
+    "contact": "Contacto"
+  },
+  "work": {
+    "title": "MIS TRABAJOS /",
+    "viewProject": "Ver Proyecto",
+    "responsiveExtension": {
+      "title": "Responsive Extension",
+      "description": "Una extensión para desarrolladores para verificar diseños responsivos."
+    },
+    "regexle": {
+      "title": "Regexle",
+      "description": "Regexle es un desafío diario divertido donde los jugadores deben descubrir la expresión regular correcta."
+    },
+    "pollClash": {
+      "title": "Poll Clash",
+      "description": "Poll Clash es una plataforma de encuestas en tiempo real fácil de usar diseñada para escalabilidad."
+    }
+  },
+  "about": {
+    "title": "ACERCA DE /",
+    "aboutMe": "Sobre Mí",
+    "skillsTitle": "Habilidades",
+    "toolsTitle": "Herramientas y Tecnologías",
+    "description": {
+      "intro": "Soy un",
+      "developer": "desarrollador de software",
+      "specializing": "especializado en",
+      "with": "con experiencia sólida creando",
+      "restApis": "APIs REST",
+      "and": "y",
+      "realtimeApps": "aplicaciones en tiempo real",
+      "using": "usando",
+      "websockets": "WebSockets",
+      "inBoth": "en",
+      "p2Intro": "Aunque disfruto más del desarrollo backend, también tengo más de",
+      "experience": "3 años de experiencia",
+      "workingWith": "trabajando con",
+      "thatSaid": "Dicho esto,",
+      "svelte": "Svelte",
+      "hasSpecialPlace": "tiene un lugar especial en mi corazón por su elegante simplicidad y reactividad.",
+      "p3Intro": "Siempre estoy en busca de",
+      "newChallenges": "nuevos desafíos",
+      "interestingProjects": "proyectos interesantes",
+      "especially": "— especialmente aquellos que empujan los límites de lo posible en aplicaciones conectadas en tiempo real."
+    },
+    "skillsList": {
+      "csharp": "C# / ASP.NET",
+      "react": "React / TypeScript",
+      "nodejs": "Node.js / WebSockets",
+      "databases": "SQL / MongoDB",
+      "docker": "Docker / CI/CD"
+    },
+    "toolsList": {
+      "visualStudio": "Visual Studio",
+      "vsCode": "VS Code",
+      "git": "Git / GitHub",
+      "docker": "Docker",
+      "postman": "Postman",
+      "figma": "Figma",
+      "azure": "Azure",
+      "vercel": "Vercel",
+      "mongodbAtlas": "MongoDB Atlas"
+    }
+  },
+  "contact": {
+    "title": "CONECTEMOS",
+    "subtitle": "Trabajemos juntos",
+    "description": "¿Tienes un proyecto en mente o simplemente quieres charlar? Me encantaría escucharte.",
+    "form": {
+      "name": "Nombre",
+      "namePlaceholder": "Tu nombre",
+      "email": "Correo electrónico",
+      "emailPlaceholder": "tu.correo@ejemplo.com",
+      "message": "Mensaje",
+      "messagePlaceholder": "Cuéntame sobre tu proyecto...",
+      "sendButton": "Enviar Mensaje"
+    },
+    "footer": "© {{year}} Alejandro Amaya. Construido con React, TypeScript y Tailwind CSS."
+  }
+}

@@ -2,6 +2,7 @@ import { useTransform, useMotionValue } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import useScroll from "../hooks/useScroll";
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 // import ParallaxCard from "./ParallaxCard";
 import type { SubSection } from "./StickySubSection";
 import StickySubSection from "./StickySubSection";
@@ -11,6 +12,7 @@ import ParallaxCard from "./ParallaxCard";
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface AboutSectionProps extends React.HTMLAttributes<HTMLElement> {}
 const AboutSection: React.FC<AboutSectionProps> = () => {
+  const { t } = useTranslation();
   const { scroll } = useScroll();
 
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -73,45 +75,63 @@ const AboutSection: React.FC<AboutSectionProps> = () => {
   const subsections: SubSection[] = [
     {
       id: "about-me",
-      title: "About Me",
+      title: t("about.aboutMe"),
       content: (
         <div>
           <div className="max-w-4xl text-secondary space-y-4 md:space-y-6">
             <p className="text-base md:text-xl leading-relaxed font-light font-[manrope]">
-              I'm a{" "}
+              {t("about.description.intro")}{" "}
               <span className="font-semibold text-primary">
-                software developer
+                {t("about.description.developer")}
               </span>{" "}
-              specializing in <span className="font-semibold">C#</span> and{" "}
-              <span className="font-semibold">ASP.NET</span>, with solid
-              experience creating{" "}
-              <span className="font-semibold">REST APIs</span> and{" "}
-              <span className="font-semibold">real-time applications</span>{" "}
-              using <span className="font-semibold">WebSockets</span> in both{" "}
-              <span className="font-semibold">Node.js</span> and{" "}
+              {t("about.description.specializing")}{" "}
+              <span className="font-semibold">C#</span>{" "}
+              {t("about.description.and")}{" "}
+              <span className="font-semibold">ASP.NET</span>,{" "}
+              {t("about.description.with")}{" "}
+              <span className="font-semibold">
+                {t("about.description.restApis")}
+              </span>{" "}
+              {t("about.description.and")}{" "}
+              <span className="font-semibold">
+                {t("about.description.realtimeApps")}
+              </span>{" "}
+              {t("about.description.using")}{" "}
+              <span className="font-semibold">
+                {t("about.description.websockets")}
+              </span>{" "}
+              {t("about.description.inBoth")}{" "}
+              <span className="font-semibold">Node.js</span>{" "}
+              {t("about.description.and")}{" "}
               <span className="font-semibold">C#</span>.
             </p>
 
             <p className="text-base md:text-xl leading-relaxed font-light font-[manrope]">
-              While I find my deepest enjoyment in backend development, I also
-              have over{" "}
-              <span className="font-semibold">3 years of experience</span>{" "}
-              working with <span className="font-semibold">React</span> and{" "}
-              <span className="font-semibold">Angular</span>. That said,{" "}
-              <span className="font-semibold text-primary">Svelte</span> has a
-              special place in my heart for its elegant simplicity and
-              reactivity.
+              {t("about.description.p2Intro")}{" "}
+              <span className="font-semibold">
+                {t("about.description.experience")}
+              </span>{" "}
+              {t("about.description.workingWith")}{" "}
+              <span className="font-semibold">React</span>{" "}
+              {t("about.description.and")}{" "}
+              <span className="font-semibold">Angular</span>.{" "}
+              {t("about.description.thatSaid")},{" "}
+              <span className="font-semibold text-primary">
+                {t("about.description.svelte")}
+              </span>{" "}
+              {t("about.description.hasSpecialPlace")}
             </p>
 
             <p className="text-base md:text-xl leading-relaxed font-light font-[manrope]">
-              I'm always on the lookout for{" "}
-              <span className="font-semibold text-primary">new challenges</span>{" "}
-              and{" "}
+              {t("about.description.p3Intro")}{" "}
               <span className="font-semibold text-primary">
-                interesting projects
+                {t("about.description.newChallenges")}
               </span>{" "}
-              — especially those that push the boundaries of what's possible in
-              real-time, connected applications.
+              {t("about.description.and")}{" "}
+              <span className="font-semibold text-primary">
+                {t("about.description.interestingProjects")}
+              </span>{" "}
+              {t("about.description.especially")}
             </p>
           </div>
         </div>
@@ -119,15 +139,15 @@ const AboutSection: React.FC<AboutSectionProps> = () => {
     },
     {
       id: "skills",
-      title: "Skills",
+      title: t("about.skillsTitle"),
       content: (
         <div className="space-y-4">
           {[
-            { name: "C# / ASP.NET", level: 95 },
-            { name: "React / TypeScript", level: 90 },
-            { name: "Node.js / WebSockets", level: 85 },
-            { name: "SQL / MongoDB", level: 88 },
-            { name: "Docker / CI/CD", level: 80 },
+            { name: t("about.skillsList.csharp"), level: 95 },
+            { name: t("about.skillsList.react"), level: 90 },
+            { name: t("about.skillsList.nodejs"), level: 85 },
+            { name: t("about.skillsList.databases"), level: 88 },
+            { name: t("about.skillsList.docker"), level: 80 },
           ].map((skill) => (
             <div key={skill.name}>
               <div className="flex justify-between mb-2">
@@ -151,19 +171,19 @@ const AboutSection: React.FC<AboutSectionProps> = () => {
     },
     {
       id: "tools",
-      title: "Tools & Technologies",
+      title: t("about.toolsTitle"),
       content: (
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {[
-            "Visual Studio",
-            "VS Code",
-            "Git / GitHub",
-            "Docker",
-            "Postman",
-            "Figma",
-            "Azure",
-            "Vercel",
-            "MongoDB Atlas",
+            t("about.toolsList.visualStudio"),
+            t("about.toolsList.vsCode"),
+            t("about.toolsList.git"),
+            t("about.toolsList.docker"),
+            t("about.toolsList.postman"),
+            t("about.toolsList.figma"),
+            t("about.toolsList.azure"),
+            t("about.toolsList.vercel"),
+            t("about.toolsList.mongodbAtlas"),
           ].map((tool) => (
             <motion.div
               key={tool}
@@ -192,7 +212,7 @@ const AboutSection: React.FC<AboutSectionProps> = () => {
       <div className="bg-foreground w-full h-full flex flex-col justify-start items-center p-10 rounded-t-2xl">
         <div className="w-full">
           <h1 className="text-4xl md:text-6xl font-bold text-primary font-[Space-Grotesk-Bold]">
-            ABOUT /
+            {t("about.title")}
           </h1>
         </div>
 

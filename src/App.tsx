@@ -5,10 +5,13 @@ import HomeSection from "./components/HomeSection";
 import AboutSection from "./components/AboutSection";
 import WorkSection from "./components/WorkSection";
 import ContactSection from "./components/ContactSection";
+import LanguageSwitcher from "./components/LanguageSwitcher";
+import { useLanguage } from "./hooks/useLanguage";
 
 import "./fonts/MonumentExtended-Regular.otf";
 
 const App: React.FC = () => {
+  useLanguage(); // Hook para actualizar el lang del HTML
   const lenisRef = useRef<Lenis | null>(null);
 
   const handleScrollToSection = (sectionId: string) => {
@@ -55,6 +58,7 @@ const App: React.FC = () => {
         lenis={lenisRef.current}
         onNavClick={(section) => handleScrollToSection(section)}
       />
+      <LanguageSwitcher />
 
       <main>
         <HomeSection />

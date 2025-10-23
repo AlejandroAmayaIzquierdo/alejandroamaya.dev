@@ -2,9 +2,11 @@ import { motion, useMotionValue, useTransform } from "motion/react";
 import { Send } from "lucide-react";
 import { useEffect, useState } from "react";
 import useScroll from "../hooks/useScroll";
+import { useTranslation } from "react-i18next";
 
 // interface ContactSectionProps {}
 const ContactSection: React.FC = () => {
+  const { t } = useTranslation();
   const { scroll } = useScroll();
   const scrollMotion = useMotionValue(scroll);
   const [formData, setFormData] = useState({
@@ -84,11 +86,10 @@ const ContactSection: React.FC = () => {
           className="text-center mb-16"
         >
           <h1 className="text-5xl md:text-7xl font-bold text-foreground font-[Space-Grotesk-Bold] mb-4">
-            LET'S CONNECT
+            {t("contact.title")}
           </h1>
           {/* <p className="text-lg md:text-xl text-muted-foreground font-[manrope] max-w-2xl mx-auto">
-            Have a project in mind or just want to chat? I'd love to hear from
-            you.
+            {t('contact.description')}
           </p> */}
         </motion.div>
 
@@ -106,7 +107,7 @@ const ContactSection: React.FC = () => {
                   htmlFor="name"
                   className="block text-sm font-medium text-foreground mb-2 font-[manrope]"
                 >
-                  Name
+                  {t("contact.form.name")}
                 </label>
                 <input
                   type="text"
@@ -116,7 +117,7 @@ const ContactSection: React.FC = () => {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-secondary/10 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-foreground"
-                  placeholder="Your name"
+                  placeholder={t("contact.form.namePlaceholder")}
                 />
               </div>
 
@@ -125,7 +126,7 @@ const ContactSection: React.FC = () => {
                   htmlFor="email"
                   className="block text-sm font-medium text-foreground mb-2 font-[manrope]"
                 >
-                  Email
+                  {t("contact.form.email")}
                 </label>
                 <input
                   type="email"
@@ -135,7 +136,7 @@ const ContactSection: React.FC = () => {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-secondary/10 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-foreground"
-                  placeholder="your.email@example.com"
+                  placeholder={t("contact.form.emailPlaceholder")}
                 />
               </div>
 
@@ -144,7 +145,7 @@ const ContactSection: React.FC = () => {
                   htmlFor="message"
                   className="block text-sm font-medium text-foreground mb-2 font-[manrope]"
                 >
-                  Message
+                  {t("contact.form.message")}
                 </label>
                 <textarea
                   id="message"
@@ -154,7 +155,7 @@ const ContactSection: React.FC = () => {
                   required
                   rows={6}
                   className="w-full px-4 py-3 bg-secondary/10 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none text-foreground"
-                  placeholder="Tell me about your project..."
+                  placeholder={t("contact.form.messagePlaceholder")}
                 />
               </div>
 
@@ -164,7 +165,7 @@ const ContactSection: React.FC = () => {
                 whileTap={{ scale: 0.98 }}
                 className="w-full bg-foreground text-primary-foreground px-6 py-3 rounded-lg font-semibold font-[manrope] flex items-center justify-center gap-2 hover:bg-foreground/90 transition-colors"
               >
-                Send Message
+                {t("contact.form.sendButton")}
                 <Send size={18} />
               </motion.button>
             </form>

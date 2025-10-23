@@ -1,0 +1,91 @@
+{
+  "home": {
+    "title": "Alejandro Amaya",
+    "role": "DEVELOPER",
+    "subtitle": "Full Stack Developer",
+    "location": "Full Stack Developer • {{year}} • Tenerife"
+  },
+  "nav": {
+    "home": "Home",
+    "work": "Work",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "work": {
+    "title": "MY WORKS /",
+    "viewProject": "View Project",
+    "responsiveExtension": {
+      "title": "Responsive Extension",
+      "description": "An extension for developers to check responsive designs."
+    },
+    "regexle": {
+      "title": "Regexle",
+      "description": "Regexle is a fun, daily challenge webapp where players must discover the correct regular expression."
+    },
+    "pollClash": {
+      "title": "Poll Clash",
+      "description": "Poll Clash is an easy-to-use, real-time polling platform designed for scalability."
+    }
+  },
+  "about": {
+    "title": "ABOUT /",
+    "aboutMe": "About Me",
+    "skillsTitle": "Skills",
+    "toolsTitle": "Tools & Technologies",
+    "description": {
+      "intro": "I'm a",
+      "developer": "software developer",
+      "specializing": "specializing in",
+      "with": "with solid experience creating",
+      "restApis": "REST APIs",
+      "and": "and",
+      "realtimeApps": "real-time applications",
+      "using": "using",
+      "websockets": "WebSockets",
+      "inBoth": "in both",
+      "p2Intro": "While I find my deepest enjoyment in backend development, I also have over",
+      "experience": "3 years of experience",
+      "workingWith": "working with",
+      "thatSaid": "That said,",
+      "svelte": "Svelte",
+      "hasSpecialPlace": "has a special place in my heart for its elegant simplicity and reactivity.",
+      "p3Intro": "I'm always on the lookout for",
+      "newChallenges": "new challenges",
+      "interestingProjects": "interesting projects",
+      "especially": "— especially those that push the boundaries of what's possible in real-time, connected applications."
+    },
+    "skillsList": {
+      "csharp": "C# / ASP.NET",
+      "react": "React / TypeScript",
+      "nodejs": "Node.js / WebSockets",
+      "databases": "SQL / MongoDB",
+      "docker": "Docker / CI/CD"
+    },
+    "toolsList": {
+      "visualStudio": "Visual Studio",
+      "vsCode": "VS Code",
+      "git": "Git / GitHub",
+      "docker": "Docker",
+      "postman": "Postman",
+      "figma": "Figma",
+      "azure": "Azure",
+      "vercel": "Vercel",
+      "mongodbAtlas": "MongoDB Atlas"
+    }
+  },
+  "contact": {
+    "title": "LET'S CONNECT",
+    "subtitle": "Let's work together",
+    "description": "Have a project in mind or just want to chat? I'd love to hear from you.",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "your.email@example.com",
+      "message": "Message",
+      "messagePlaceholder": "Tell me about your project...",
+      "sendButton": "Send Message"
+    },
+    "footer": "© {{year}} Alejandro Amaya. Built with React, TypeScript & Tailwind CSS."
+  }
+}

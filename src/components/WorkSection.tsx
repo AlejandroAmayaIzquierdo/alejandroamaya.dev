@@ -2,9 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import WorkComponent from "./WorkComponent";
 import { useMotionValue } from "motion/react";
 import useScroll from "../hooks/useScroll";
+import { useTranslation } from "react-i18next";
 
 // interface WorkSectionProps {}
 const WorkSection: React.FC = () => {
+  const { t } = useTranslation();
   const [countSection, setCurrentCountSection] = useState(1);
   // const [scrollRange, setScrollRange] = useState([0, 1000]);
 
@@ -90,7 +92,7 @@ const WorkSection: React.FC = () => {
       <div className="bg-foreground w-full ml-2 mr-2 h-full flex flex-col justify-start items-center p-10 rounded-b-2xl">
         <div className="w-full">
           <h1 className="text-6xl font-bold text-primary font-[Space-Grotesk-Bold]">
-            MY WORKS /
+            {t("work.title")}
           </h1>
         </div>
 
@@ -125,23 +127,23 @@ const WorkSection: React.FC = () => {
             <div className="w-1/0.5 gap-40">
               <WorkComponent
                 ref={refResponsive}
-                title="Responsive Extension"
-                description="A extension for developers to check responsive designs."
+                title={t("work.responsiveExtension.title")}
+                description={t("work.responsiveExtension.description")}
                 link="https://chromewebstore.google.com/u/1/detail/responsive-extension/dppcabjajpicaohiikhpjgkgkpekloke"
                 videoSrc="/responsive-extension.mp4"
               />
               <WorkComponent
                 ref={refRegexle}
-                title="Regexle"
-                description="Regexle is a fun, daily challenge webapp where players must discover the correct regular expression to solve a given problem"
+                title={t("work.regexle.title")}
+                description={t("work.regexle.description")}
                 videoSrc="/regexle.png"
                 link="https://github.com/AlejandroAmayaIzquierdo/Regexle"
                 isVideo={false}
               />
               <WorkComponent
                 ref={refPollClash}
-                title="Poll Clash"
-                description="Poll Clash is an easy-to-use, real-time polling platform designed for scalability."
+                title={t("work.pollClash.title")}
+                description={t("work.pollClash.description")}
                 videoSrc="/poll-clash.mp4"
                 link="https://github.com/AlejandroAmayaIzquierdo/Poll_Clash"
               />
