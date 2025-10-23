@@ -181,7 +181,7 @@ const AboutSection: React.FC<AboutSectionProps> = () => {
 
   return (
     <motion.section
-      id="work"
+      id="about"
       ref={sectionRef}
       style={{
         opacity: opacity.get(),

@@ -79,7 +79,7 @@ const WorkSection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      id="about"
+      id="work"
       className="min-h-screen flex items-start justify-start"
     >
       <div className="bg-foreground w-full ml-2 mr-2 h-full flex flex-col justify-start items-center p-10 rounded-b-2xl">
