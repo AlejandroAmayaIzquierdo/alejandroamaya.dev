@@ -98,7 +98,7 @@ const WorkSection: React.FC = () => {
 
         <div className="w-full mt-10 flex flex-col gap-10">
           <div className="flex flex-row gap-5 flex-wrap justify-between items-start">
-            <div className="text-secondary font-[Space-Grotesk-Bold] sticky top-12 col-span-5 hidden h-fit w-1/3 overflow-hidden text-[22vw] font-normal leading-[0.8] md:flex mb-70">
+            <div className="text-secondary font-[Space-Grotesk-Bold] sticky top-12 col-span-5 hidden h-fit w-1/3 overflow-hidden text-[20vw] font-normal leading-[0.8] md:flex mb-70">
               <span
                 className="relative font-[Space-Grotesk-Bold]"
                 ref={numberRef}

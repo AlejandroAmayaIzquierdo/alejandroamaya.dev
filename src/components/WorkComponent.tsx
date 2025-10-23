@@ -1,3 +1,7 @@
+import useMouse from "@react-hook/mouse-position";
+import Cursor from "./Cursor";
+import { useRef } from "react";
+
 interface WorkComponentProps {
   videoSrc: string;
   description?: string;
@@ -14,12 +18,21 @@ const WorkComponent: React.FC<WorkComponentProps> = ({
   isVideo = true,
   ref,
 }) => {
+  const refLink = useRef<HTMLAnchorElement | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
+  const { clientX, clientY } = useMouse(refLink?.current!, {
+    enterDelay: 100,
+    leaveDelay: 100,
+    fps: 2000,
+  });
   return (
     <div
       ref={ref}
       className="w-full max-w-5xl h-auto rounded-lg overflow-hidden pb-20"
     >
+      <Cursor mouseX={clientX} mouseY={clientY} />
       <a
+        ref={refLink}
         target="_blank"
         href={link || "#"}
         className="block hover:opacity-90 transition-opacity"

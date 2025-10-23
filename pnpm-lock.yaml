@@ -11,6 +11,9 @@ importers:
 
   .:
     dependencies:
+      '@react-hook/mouse-position':
+        specifier: ^4.1.3
+        version: 4.1.3(react@19.2.0)
       '@tailwindcss/vite':
         specifier: ^4.1.14
         version: 4.1.14(rolldown-vite@7.1.14(@types/node@24.8.0)(esbuild@0.25.4)(jiti@2.6.1))
@@ -348,6 +351,26 @@ packages:
 
   '@oxc-project/types@0.93.0':
     resolution: {integrity: sha512-yNtwmWZIBtJsMr5TEfoZFDxIWV6OdScOpza/f5YxbqUMJk+j6QX3Cf3jgZShGEFYWQJ5j9mJ6jM0tZHu2J9Yrg==}
+
+  '@react-hook/event@1.2.6':
+    resolution: {integrity: sha512-JUL5IluaOdn5w5Afpe/puPa1rj8X6udMlQ9dt4hvMuKmTrBS1Ya6sb4sVgvfe2eU4yDuOfAhik8xhbcCekbg9Q==}
+    peerDependencies:
+      react: '>=16.8'
+
+  '@react-hook/latest@1.0.3':
+    resolution: {integrity: sha512-dy6duzl+JnAZcDbNTfmaP3xHiKtbXYOaz3G51MGVljh548Y8MWzTr+PHLOfvpypEVW9zwvl+VyKjbWKEVbV1Rg==}
+    peerDependencies:
+      react: '>=16.8'
+
+  '@react-hook/mouse-position@4.1.3':
+    resolution: {integrity: sha512-+N4X75CmFiZVEySVmz54MkHk68FqKbbBG2rMCSbGSCCFdypV7rAHiatZwx9Ruq/XfQ01XCxBPaLNMiW69mY19Q==}
+    peerDependencies:
+      react: '>=16.8'
+
+  '@react-hook/throttle@2.2.0':
+    resolution: {integrity: sha512-LJ5eg+yMV8lXtqK3lR+OtOZ2WH/EfWvuiEEu0M3bhR7dZRfTyEJKxH1oK9uyBxiXPtWXiQggWbZirMCXam51tg==}
+    peerDependencies:
+      react: '>=16.8'
 
   '@rolldown/binding-android-arm64@1.0.0-beta.41':
     resolution: {integrity: sha512-Edflndd9lU7JVhVIvJlZhdCj5DkhYDJPIRn4Dx0RUdfc8asP9xHOI5gMd8MesDDx+BJpdIT/uAmVTearteU/mQ==}
@@ -1651,6 +1674,25 @@ snapshots:
   '@oxc-project/runtime@0.92.0': {}
 
   '@oxc-project/types@0.93.0': {}
+
+  '@react-hook/event@1.2.6(react@19.2.0)':
+    dependencies:
+      react: 19.2.0
+
+  '@react-hook/latest@1.0.3(react@19.2.0)':
+    dependencies:
+      react: 19.2.0
+
+  '@react-hook/mouse-position@4.1.3(react@19.2.0)':
+    dependencies:
+      '@react-hook/event': 1.2.6(react@19.2.0)
+      '@react-hook/throttle': 2.2.0(react@19.2.0)
+      react: 19.2.0
+
+  '@react-hook/throttle@2.2.0(react@19.2.0)':
+    dependencies:
+      '@react-hook/latest': 1.0.3(react@19.2.0)
+      react: 19.2.0
 
   '@rolldown/binding-android-arm64@1.0.0-beta.41':
     optional: true
