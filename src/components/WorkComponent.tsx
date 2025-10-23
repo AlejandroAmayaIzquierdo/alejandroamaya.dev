@@ -17,7 +17,7 @@ const WorkComponent: React.FC<WorkComponentProps> = ({
   return (
     <div
       ref={ref}
-      className="w-full max-w-5xl h-auto rounded-lg overflow-hidden"
+      className="w-full max-w-5xl h-auto rounded-lg overflow-hidden pb-20"
     >
       <a
         target="_blank"
@@ -39,10 +39,10 @@ const WorkComponent: React.FC<WorkComponentProps> = ({
       </a>
 
       <div className="p-4 bg-foreground">
-        {description && <p className="text-secondary">{description}</p>}
+        {description && <p className="text-secondary mt-2">{description}</p>}
 
         {title && (
-          <h2 className="text-2xl font-bold text-primary mb-2">{title}</h2>
+          <h1 className="text-4xl font-bold text-primary mb-2 mt-2">{title}</h1>
         )}
       </div>
     </div>

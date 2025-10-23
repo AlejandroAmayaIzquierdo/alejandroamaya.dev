@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import WorkComponent from "./WorkComponent";
-import { useMotionValue, useTransform } from "motion/react";
+import { useMotionValue } from "motion/react";
 import useScroll from "../hooks/useScroll";
 
 // interface WorkSectionProps {}
 const WorkSection: React.FC = () => {
   const [countSection, setCurrentCountSection] = useState(1);
-  const [scrollRange, setScrollRange] = useState([0, 1000]);
+  // const [scrollRange, setScrollRange] = useState([0, 1000]);
 
   const { scroll } = useScroll();
 
@@ -15,6 +15,8 @@ const WorkSection: React.FC = () => {
   const refResponsive = useRef<HTMLDivElement>(null);
   const refRegexle = useRef<HTMLDivElement>(null);
   const refPollClash = useRef<HTMLDivElement>(null);
+
+  const numberRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     scrollMotion.set(scroll);
@@ -26,55 +28,58 @@ const WorkSection: React.FC = () => {
         refPollClash.current.getBoundingClientRect();
       const innerHeight = window.innerHeight;
 
+      const numberHeight =
+        numberRef.current?.getBoundingClientRect().height || 0;
+
       if (
-        bottomRegexle - innerHeight > 0 &&
-        bottomPollClash - innerHeight > 0
+        bottomRegexle - innerHeight - numberHeight / 2 > 0 &&
+        bottomPollClash - innerHeight - numberHeight / 2 > 0
       ) {
         setCurrentCountSection(1);
       }
-      if (bottomRegexle - innerHeight < 0) {
+      if (bottomRegexle - innerHeight - numberHeight / 2 < 0) {
         setCurrentCountSection(2);
       }
-      if (bottomPollClash - innerHeight < 0) {
+      if (bottomPollClash - innerHeight - numberHeight / 2 < 0) {
         setCurrentCountSection(3);
       }
     }
   }, [scroll, scrollMotion]);
 
   // Calculate dynamic scroll ranges based on section position
-  useEffect(() => {
-    const calculateRange = () => {
-      if (sectionRef.current && refResponsive.current && refPollClash.current) {
-        // Get the offsetTop of the section and last work item
-        // const sectionTop = sectionRef.current.offsetTop;
-        const responsiveTop = refResponsive.current.offsetTop;
-        const lastItemTop = refPollClash.current.offsetTop;
-        // const lastItemHeight = refPollClash.current.offsetHeight;
+  // useEffect(() => {
+  //   const calculateRange = () => {
+  //     if (sectionRef.current && refResponsive.current && refPollClash.current) {
+  //       // Get the offsetTop of the section and last work item
+  //       // const sectionTop = sectionRef.current.offsetTop;
+  //       const responsiveTop = refResponsive.current.offsetTop;
+  //       const lastItemTop = refPollClash.current.offsetTop;
+  //       // const lastItemHeight = refPollClash.current.offsetHeight;
 
-        // Start when section enters viewport
-        const start = responsiveTop;
-        // End when last item exits viewport
-        const end = lastItemTop;
+  //       // Start when section enters viewport
+  //       const start = responsiveTop;
+  //       // End when last item exits viewport
+  //       const end = lastItemTop;
 
-        setScrollRange([Math.max(0, start), end]);
-      }
-    };
+  //       setScrollRange([Math.max(0, start), end]);
+  //     }
+  //   };
 
-    calculateRange();
-    window.addEventListener("resize", calculateRange);
-    // Recalculate after images/content load
-    window.addEventListener("load", calculateRange);
+  //   calculateRange();
+  //   window.addEventListener("resize", calculateRange);
+  //   // Recalculate after images/content load
+  //   window.addEventListener("load", calculateRange);
 
-    return () => {
-      window.removeEventListener("resize", calculateRange);
-      window.removeEventListener("load", calculateRange);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("resize", calculateRange);
+  //     window.removeEventListener("load", calculateRange);
+  //   };
+  // }, []);
 
-  const y = useTransform(scrollMotion, scrollRange, [
-    0,
-    scrollRange[1] - scrollRange[0],
-  ]);
+  // const y = useTransform(scrollMotion, scrollRange, [
+  //   0,
+  //   scrollRange[1] - scrollRange[0],
+  // ]);
 
   return (
     <section
@@ -91,13 +96,33 @@ const WorkSection: React.FC = () => {
 
         <div className="w-full mt-10 flex flex-col gap-10">
           <div className="flex flex-row gap-5 flex-wrap justify-between items-start">
-            <h1
-              className="text-9xl text-secondary w-1/5 font-[Space-Grotesk-Bold] p-10"
-              style={{ transform: `translateY(${y.get()}px)` }}
-            >
-              {countSection.toString().padStart(2, "0")}
-            </h1>
-            <div className="w-3/5">
+            <div className="text-secondary font-[Space-Grotesk-Bold] sticky top-12 col-span-5 hidden h-fit w-1/3 overflow-hidden text-[22vw] font-normal leading-[0.8] md:flex mb-70">
+              <span
+                className="relative font-[Space-Grotesk-Bold]"
+                ref={numberRef}
+              >
+                0
+              </span>
+              <div className="relative">
+                <div
+                  className="absolute flex h-full w-fit flex-col transition-all duration-1000 ease-in-out font-[Space-Grotesk-Bold]"
+                  style={{
+                    transform: `translateY(-${(countSection - 1) * 100}%)`,
+                  }}
+                >
+                  <span className="inline-block font-[Space-Grotesk-Bold]">
+                    1
+                  </span>
+                  <span className="inline-block font-[Space-Grotesk-Bold]">
+                    2
+                  </span>
+                  <span className="inline-block font-[Space-Grotesk-Bold]">
+                    3
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="w-1/0.5 gap-40">
               <WorkComponent
                 ref={refResponsive}
                 title="Responsive Extension"
