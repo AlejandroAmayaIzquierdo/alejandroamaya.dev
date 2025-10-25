@@ -7,13 +7,17 @@
   },
   "nav": {
     "home": "Inicio",
-    "work": "Trabajos",
-    "about": "Acerca de",
+    "work": "Proyectos",
+    "about": "Acerca",
     "contact": "Contacto"
   },
   "work": {
-    "title": "MIS TRABAJOS /",
+    "title": "MIS PROYECTOS /",
     "viewProject": "Ver Proyecto",
+    "rplace": {
+      "title": "My r/place",
+      "description": "Un lienzo colaborativo de arte pixel en tiempo real inspirado en r/place de Reddit, construido con WebSockets para actualizaciones instantáneas."
+    },
     "responsiveExtension": {
       "title": "Responsive Extension",
       "description": "Una extensión para desarrolladores para verificar diseños responsivos."
@@ -46,13 +50,20 @@
       "p2Intro": "Aunque disfruto más del desarrollo backend, también tengo más de",
       "experience": "3 años de experiencia",
       "workingWith": "trabajando con",
-      "thatSaid": "Dicho esto,",
+      "thatSaid": "Dicho esto",
       "svelte": "Svelte",
       "hasSpecialPlace": "tiene un lugar especial en mi corazón por su elegante simplicidad y reactividad.",
       "p3Intro": "Siempre estoy en busca de",
       "newChallenges": "nuevos desafíos",
       "interestingProjects": "proyectos interesantes",
       "especially": "— especialmente aquellos que empujan los límites de lo posible en aplicaciones conectadas en tiempo real."
+    },
+    "experienceTitle": "Experiencia",
+    "experience": {
+      "role": "Desarrollador Full Stack",
+      "company": "Itop Consulting · Jornada completa",
+      "period": "Mar 2023 - Actualidad",
+      "description": "Desarrollador Full Stack en Itop Consulting, trabajando con React, Angular, C#, .NET Core y ASP.NET. Desarrollo de APIs REST, testing automatizado e integración con sistemas ERP, aplicando buenas prácticas con enfoque en código limpio y escalable."
     },
     "skillsList": {
       "csharp": "C# / ASP.NET",
@@ -76,7 +87,7 @@
   "contact": {
     "title": "CONECTEMOS",
     "subtitle": "Trabajemos juntos",
-    "description": "¿Tienes un proyecto en mente o simplemente quieres charlar? Me encantaría escucharte.",
+    "description": "¿Tienes un proyecto en mente? Trabajemos juntos para crear algo increíble.",
     "form": {
       "name": "Nombre",
       "namePlaceholder": "Tu nombre",
@@ -86,6 +97,23 @@
       "messagePlaceholder": "Cuéntame sobre tu proyecto...",
       "sendButton": "Enviar Mensaje"
     },
-    "footer": "© {{year}} Alejandro Amaya. Construido con React, TypeScript y Tailwind CSS."
+    "infoBox": {
+      "title": "Conectemos",
+      "description": "Siempre estoy abierto a discutir nuevos proyectos, ideas creativas u oportunidades."
+    },
+    "responseTime": {
+      "title": "Respuesta Rápida",
+      "description": "Normalmente respondo dentro de 24-48 horas durante días hábiles."
+    },
+    "socialLinks": {
+      "title": "Encuéntrame en Línea"
+    },
+    "footer": {
+      "copyright": "© {{year}} Alejandro Amaya. Construido con React, TypeScript y Tailwind CSS."
+    },
+    "toast": {
+      "success": "¡Mensaje enviado con éxito!",
+      "error": "Error al enviar el mensaje."
+    }
   }
 }

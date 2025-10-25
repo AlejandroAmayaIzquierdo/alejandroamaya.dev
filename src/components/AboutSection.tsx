@@ -115,11 +115,11 @@ const AboutSection: React.FC<AboutSectionProps> = () => {
               <span className="font-semibold">React</span>{" "}
               {t("about.description.and")}{" "}
               <span className="font-semibold">Angular</span>.{" "}
-              {t("about.description.thatSaid")},{" "}
-              <span className="font-semibold text-primary">
+              {/* {t("about.description.thatSaid")}{" "} */}
+              {/* <span className="font-semibold text-primary">
                 {t("about.description.svelte")}
               </span>{" "}
-              {t("about.description.hasSpecialPlace")}
+              {t("about.description.hasSpecialPlace")} */}
             </p>
 
             <p className="text-base md:text-xl leading-relaxed font-light font-[manrope]">
@@ -137,6 +137,36 @@ const AboutSection: React.FC<AboutSectionProps> = () => {
         </div>
       ),
     },
+
+    {
+      id: "experience",
+      title: t("about.experienceTitle"),
+      content: (
+        <div className="space-y-6">
+          <motion.div
+            className="border-l-2 border-primary pl-4 pb-4"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2 gap-1">
+              <h3 className="text-lg md:text-xl font-bold text-primary">
+                {t("about.experience.role")}
+              </h3>
+              <span className="text-sm text-muted-foreground">
+                {t("about.experience.period")}
+              </span>
+            </div>
+            <p className="text-base md:text-lg font-semibold text-secondary mb-2">
+              {t("about.experience.company")}
+            </p>
+            <p className="text-sm md:text-base text-secondary/80 leading-relaxed">
+              {t("about.experience.description")}
+            </p>
+          </motion.div>
+        </div>
+      ),
+    },
     {
       id: "skills",
       title: t("about.skillsTitle"),
@@ -144,55 +174,27 @@ const AboutSection: React.FC<AboutSectionProps> = () => {
         <div className="space-y-4">
           {[
             { name: t("about.skillsList.csharp"), level: 95 },
-            { name: t("about.skillsList.react"), level: 90 },
-            { name: t("about.skillsList.nodejs"), level: 85 },
-            { name: t("about.skillsList.databases"), level: 88 },
-            { name: t("about.skillsList.docker"), level: 80 },
+            { name: "React", level: 90 },
+            { name: "WebSockets", level: 85 },
+            { name: "SQL", level: 88 },
+            { name: "Docker", level: 80 },
           ].map((skill) => (
             <div key={skill.name}>
               <div className="flex justify-between mb-2">
                 <span className="text-lg font-semibold text-secondary">
                   {skill.name}
                 </span>
-                <span className="text-lg">{skill.level}%</span>
+                <span className="text-lg text-primary">{skill.level}%</span>
               </div>
-              <div className="w-full bg-muted rounded-full h-3">
+              <div className="w-full bg-secondary rounded-full h-3">
                 <motion.div
-                  className="bg-secondary h-3 rounded-full"
+                  className="bg-primary h-3 rounded-full"
                   initial={{ width: 0 }}
                   whileInView={{ width: `${skill.level}%` }}
                   transition={{ duration: 1, ease: "easeOut" }}
                 />
               </div>
             </div>
-          ))}
-        </div>
-      ),
-    },
-    {
-      id: "tools",
-      title: t("about.toolsTitle"),
-      content: (
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {[
-            t("about.toolsList.visualStudio"),
-            t("about.toolsList.vsCode"),
-            t("about.toolsList.git"),
-            t("about.toolsList.docker"),
-            t("about.toolsList.postman"),
-            t("about.toolsList.figma"),
-            t("about.toolsList.azure"),
-            t("about.toolsList.vercel"),
-            t("about.toolsList.mongodbAtlas"),
-          ].map((tool) => (
-            <motion.div
-              key={tool}
-              className="bg-card border border-border rounded-lg p-4 text-center"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <span className="text-lg font-medium">{tool}</span>
-            </motion.div>
           ))}
         </div>
       ),
@@ -207,18 +209,18 @@ const AboutSection: React.FC<AboutSectionProps> = () => {
         opacity: opacity.get(),
         transform: `translateY(${y.get()}px) scale(${scale.get()})`,
       }}
-      className="min-h-screen relative mx-2"
+      className="min-h-screen relative flex items-start justify-start"
     >
-      <div className="bg-foreground w-full h-full flex flex-col justify-start items-center p-10 rounded-t-2xl">
+      <div className="bg-foreground w-full ml-2 mr-2 h-full flex flex-col justify-start items-center p-3 md:p-5 rounded-t-2xl">
         <div className="w-full">
           <h1 className="text-4xl md:text-6xl font-bold text-primary font-[Space-Grotesk-Bold]">
             {t("about.title")}
           </h1>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-4 md:gap-2 items-start justify-start w-full">
+        <div className=" flex flex-col md:flex-row gap-4 md:gap-2 items-start justify-start w-full">
           <motion.div
-            className="w-1/2 pt-10"
+            className="w-1/2 pt-10 hidden md:block"
             style={{
               transform: `translateY(${followScroll.get()}px)`,
             }}
@@ -232,7 +234,7 @@ const AboutSection: React.FC<AboutSectionProps> = () => {
           </motion.div>
           {/* Right Column - Stacked Subsections */}
 
-          <div className="w-1/2 space-y-0 pt-32">
+          <div className="w-full md:w-1/2 space-y-0 pt-32">
             {subsections.map((subsection, index) => (
               <StickySubSection
                 key={subsection.id}

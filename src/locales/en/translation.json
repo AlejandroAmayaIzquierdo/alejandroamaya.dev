@@ -14,6 +14,10 @@
   "work": {
     "title": "MY WORKS /",
     "viewProject": "View Project",
+    "rplace": {
+      "title": "My r/place",
+      "description": "A real-time collaborative pixel art canvas inspired by Reddit's r/place, built with WebSockets for instant updates."
+    },
     "responsiveExtension": {
       "title": "Responsive Extension",
       "description": "An extension for developers to check responsive designs."
@@ -54,6 +58,13 @@
       "interestingProjects": "interesting projects",
       "especially": "— especially those that push the boundaries of what's possible in real-time, connected applications."
     },
+    "experienceTitle": "Experience",
+    "experience": {
+      "role": "Full Stack Developer",
+      "company": "Itop Consulting · Full-time",
+      "period": "Mar 2023 - Present",
+      "description": "Full Stack Developer at Itop Consulting, working with React, Angular, C#, .NET Core and ASP.NET. REST API development, automated testing, and ERP system integration, applying best practices with focus on clean and scalable code."
+    },
     "skillsList": {
       "csharp": "C# / ASP.NET",
       "react": "React / TypeScript",
@@ -76,7 +87,7 @@
   "contact": {
     "title": "LET'S CONNECT",
     "subtitle": "Let's work together",
-    "description": "Have a project in mind or just want to chat? I'd love to hear from you.",
+    "description": "Have a project in mind? Let's work together to create something amazing.",
     "form": {
       "name": "Name",
       "namePlaceholder": "Your name",
@@ -86,6 +97,23 @@
       "messagePlaceholder": "Tell me about your project...",
       "sendButton": "Send Message"
     },
-    "footer": "© {{year}} Alejandro Amaya. Built with React, TypeScript & Tailwind CSS."
+    "infoBox": {
+      "title": "Let's Connect",
+      "description": "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out through the form or connect with me on social media."
+    },
+    "responseTime": {
+      "title": "Quick Response",
+      "description": "I typically respond within 24-48 hours during business days."
+    },
+    "socialLinks": {
+      "title": "Find Me Online"
+    },
+    "footer": {
+      "copyright": "© {{year}} Alejandro Amaya. Built with React, TypeScript & Tailwind CSS."
+    },
+    "toast": {
+      "success": "Message sent successfully!",
+      "error": "Failed to send message."
+    }
   }
 }

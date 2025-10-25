@@ -9,6 +9,7 @@ import LanguageSwitcher from "./components/LanguageSwitcher";
 import { useLanguage } from "./hooks/useLanguage";
 
 import "./fonts/MonumentExtended-Regular.otf";
+import { Toaster } from "sonner";
 
 const App: React.FC = () => {
   useLanguage(); // Hook para actualizar el lang del HTML
@@ -54,6 +55,7 @@ const App: React.FC = () => {
 
   return (
     <div className="bg-background">
+      <Toaster />
       <Header
         lenis={lenisRef.current}
         onNavClick={(section) => handleScrollToSection(section)}

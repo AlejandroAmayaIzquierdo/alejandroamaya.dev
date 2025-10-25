@@ -1,4 +1,4 @@
-import {
+import React, {
   useCallback,
   useEffect,
   useImperativeHandle,
@@ -16,6 +16,7 @@ const CHARS =
 type Props = {
   children: string;
   autoStart?: boolean; // Control if scramble starts automatically
+  className?: React.HTMLAttributes<HTMLDivElement>["className"];
 };
 
 export type ScrambleTextRef = {
@@ -24,7 +25,7 @@ export type ScrambleTextRef = {
 };
 
 const ScrambleText = forwardRef<ScrambleTextRef, Props>(
-  ({ children, autoStart = true }, ref) => {
+  ({ children, autoStart = true, className }, ref) => {
     const intervalRef = useRef<number | null>(null);
     const TARGET_TEXT = children;
 
@@ -98,7 +99,7 @@ const ScrambleText = forwardRef<ScrambleTextRef, Props>(
         onMouseLeave={stopScramble}
         className="relative overflow-hidden"
       >
-        <span>{text}</span>
+        <span className={className}>{text}</span>
       </motion.div>
     );
   }

@@ -13,7 +13,7 @@ const LanguageSwitcher: React.FC = () => {
   return (
     <motion.button
       onClick={toggleLanguage}
-      className="fixed top-20 right-4 md:top-6 md:right-6 z-50 bg-foreground text-background p-3 rounded-full shadow-lg flex items-center gap-2 hover:scale-105 transition-transform"
+      className="hidden xl:flex md:fixed top-20 right-4 md:top-6 md:right-6 z-50 bg-foreground text-background p-3 rounded-full shadow-lg items-center gap-2 hover:scale-105 transition-transform"
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       aria-label="Change language"

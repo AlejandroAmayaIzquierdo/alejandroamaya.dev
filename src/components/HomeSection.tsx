@@ -156,7 +156,7 @@ const HomeSection: React.FC<HomeSectionProps> = () => {
 
       {/* Large text at bottom */}
       <motion.div
-        className="absolute bottom-0 left-0 text-[4rem] sm:text-[6rem] md:text-[8rem] lg:text-[12rem] font-[Space-Grotesk-Bold] font-extrabold tracking-tighter leading-none opacity-100"
+        className="absolute bottom-0 left-5 text-[3rem] sm:text-[3rem] md:text-[5rem] lg:text-[8rem] xl:text-[11rem] font-[Space-Grotesk-Bold] font-extrabold tracking-tighter leading-none opacity-100"
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         spellCheck="false"
@@ -168,9 +168,9 @@ const HomeSection: React.FC<HomeSectionProps> = () => {
         {t("home.role")}
       </motion.div>
 
-      {/* Right side vertical text - hidden on mobile */}
+      {/* Right side vertical text */}
       <motion.div
-        className="hidden md:block absolute top-1/2 right-4 -translate-y-1/2 text-xs tracking-widest font-[manrope] text-secondary"
+        className="block absolute top-1/2 right-4 -translate-y-1/2 text-xs tracking-widest font-[manrope] text-secondary"
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.7 }}
@@ -189,7 +189,7 @@ const HomeSection: React.FC<HomeSectionProps> = () => {
         initial={{ opacity: 0, rotate: 45, scale: 0.5 }}
         animate={{ opacity: 1, rotate: 90, scale: 1 }}
         transition={{ duration: 0.6, delay: 0.8 }}
-        className="absolute bottom-0 right-0"
+        className="hidden md:block absolute bottom-0 right-0"
       >
         <ArrowUpRight
           strokeLinecap="butt"
@@ -198,7 +198,7 @@ const HomeSection: React.FC<HomeSectionProps> = () => {
         />
       </motion.div>
       <motion.div
-        className="absolute lg:top-10 md:top-15 left-0"
+        className="hidden md:block absolute lg:top-10 md:top-15 left-0"
         initial={{ opacity: 0, rotate: -45, scale: 0.5 }}
         animate={{ opacity: 1, rotate: -90, scale: 1 }}
         transition={{ duration: 0.6, delay: 0.9 }}

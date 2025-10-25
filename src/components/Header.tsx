@@ -51,7 +51,7 @@ const Header: React.FC<HeaderProps> = ({ onNavClick }) => {
       className="absolute top-0 z-40 w-full"
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between p-4 px-4 md:px-6">
-        <div className="text-lg md:text-2xl font-bold font-[Space-Grotesk-Bold]">
+        <div className="text-lg md:text-2xl font-bold font-[Space-Grotesk-Bold] text-pretty">
           {t("home.subtitle")}
         </div>
         <nav className="hidden md:flex">
@@ -60,9 +60,13 @@ const Header: React.FC<HeaderProps> = ({ onNavClick }) => {
               <li className="px-3 py-2 rounded-md">
                 <div
                   onClick={() => onNavClick?.("about")}
-                  className="font-[manrope] font-bold"
+                  className="font-[manrope] font-bold text-nowrap"
                 >
-                  <ScrambleText ref={aboutScrambleRef} autoStart={false}>
+                  <ScrambleText
+                    ref={aboutScrambleRef}
+                    className="text-nowrap"
+                    autoStart={false}
+                  >
                     {t("nav.about")}
                   </ScrambleText>
                 </div>

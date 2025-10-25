@@ -1,6 +1,7 @@
 import useMouse from "@react-hook/mouse-position";
 import Cursor from "./Cursor";
 import { useRef } from "react";
+import ScrambleText from "./ScrambleText";
 
 interface WorkComponentProps {
   videoSrc: string;
@@ -52,10 +53,14 @@ const WorkComponent: React.FC<WorkComponentProps> = ({
       </a>
 
       <div className="p-4 bg-foreground">
-        {description && <p className="text-secondary mt-2">{description}</p>}
+        {description && (
+          <p className="text-secondary mt-2">{<>{description}</>}</p>
+        )}
 
         {title && (
-          <h1 className="text-4xl font-bold text-primary mb-2 mt-2">{title}</h1>
+          <h1 className="text-4xl font-bold text-primary mb-2 mt-2">
+            <ScrambleText>{title}</ScrambleText>
+          </h1>
         )}
       </div>
     </div>
