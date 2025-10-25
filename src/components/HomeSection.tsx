@@ -73,7 +73,7 @@ const HomeSection: React.FC<HomeSectionProps> = () => {
               animate={isInView ? "animate" : "initial"}
               custom={i}
               spellCheck="false"
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-extrabold font-[Space-Grotesk-Bold] text-foreground tracking-[0.05em] md:tracking-[0.1em]"
+              className="text-3xl sm:text-3xl md:text-5xl lg:text-8xl font-extrabold font-[Space-Grotesk-Bold] text-foreground tracking-[0.05em] md:tracking-[0.1em]"
             >
               {current == " " ? <span>&nbsp;</span> : current}
             </motion.div>
